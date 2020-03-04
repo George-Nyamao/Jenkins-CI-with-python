@@ -4,13 +4,15 @@ pipeline {
 		stage('build') {
 			steps {
 				withEnv(["HOME=$env.WORKSPACE"]){
-                    sh 'pip install --user -r requirements.txt'
-                }
+					sh 'pip install --user -r requirements.txt'
+				}
 			}
 		}
 		stage('test') {
 			steps {
-				sh 'python test.py'
+				withEnv(["HOME=$env.WORKSPACE"]){
+					sh 'python test.py'
+				}
 			}
 			post {
 				always {
