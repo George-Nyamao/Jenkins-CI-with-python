@@ -3,8 +3,9 @@ pipeline {
 	stages {
 		stage('build') {
 			steps {
-				sh '/usr/bin/sudo -H pip install --upgrade pip'
-				sh '/usr/bin/sudo -H pip install -r requirements.txt'
+				withEnv(["HOME=$env.WORKSPACE"]){
+                    sh 'pip install --user -r requirements.txt'
+                }
 			}
 		}
 		stage('test') {
