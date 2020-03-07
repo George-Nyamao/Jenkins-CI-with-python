@@ -10,11 +10,7 @@ pipeline {
 			steps {
 				echo 'Testing..'
 			}
-			post {
-				always {
-					junit 'test-reports/*.xml'
-				}
-			}
+			
 		}
 	}
 }
