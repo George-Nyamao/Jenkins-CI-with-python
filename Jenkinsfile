@@ -4,7 +4,7 @@ pipeline {
 		stage('build') {
 			steps {
 				withEnv(["HOME=$env.WORKSPACE"]){
-					sh 'pip3 install --trusted-host pypi.python.org -r requirements.txt'
+					sh 'sudo -H pip install -r requirements.txt --proxy="docker:8080"'
 				}
 			}
 		}
