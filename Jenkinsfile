@@ -4,7 +4,7 @@ pipeline {
 		stage('build') {
 			steps {
 				withEnv(["HOME=$env.WORKSPACE"]){
-					sh 'pip install -r requirements.txt --proxy="0.0.0.0:9090"'
+					sh 'pip install -r requirements.txt --proxy="https://GeorgeNyamao:X7#5&NO6jpsS@localhost:9090"'
 				}
 			}
 		}
