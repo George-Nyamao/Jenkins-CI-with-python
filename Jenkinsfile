@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'pip3 install -r requirements.txt --proxy="tcp://0.0.0.0:2376"
+        sh 'pip3 install -r requirements.txt --proxy="tcp://0.0.0.0:2376"'
       }
     }
     stage('test') {
