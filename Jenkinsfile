@@ -1,18 +1,14 @@
 pipeline {
-	agent {docker {image 'python:3.7' } }
+	agent any
 	stages {
 		stage('build') {
 			steps {
-				withEnv(["HOME=$env.WORKSPACE"]){
-					sh 'pip install -r requirements.txt --proxy="https://GeorgeNyamao:X7#5&NO6jpsS@localhost:9090"'
-				}
+				echo 'Building...'
 			}
 		}
 		stage('test') {
 			steps {
-				withEnv(["HOME=$env.WORKSPACE"]){
-					sh 'python test.py'
-				}
+				echo 'Testing..'
 			}
 			post {
 				always {
