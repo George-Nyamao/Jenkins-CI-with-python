@@ -1,15 +1,24 @@
 pipeline {
-  agent { docker { image 'python:3.7.6' } }
-  stages {
-    stage('build') {
-      steps {
-        sh 'pip3 install -r requirements.txt --proxy="tcp://0.0.0.0:2376"'
-      }
-    }
-    stage('test') {
-      steps {
-        sh 'python test.py'
-      }   
-    }
-  }
+	agent {docker {image 'python:3.7' } }
+	stages {
+		stage('build') {
+			steps {
+				withEnv(["HOME=$env.WORKSPACE"]){
+					sh 'pip install --user -r requirements.txt'
+				}
+			}
+		}
+		stage('test') {
+			steps {
+				withEnv(["HOME=$env.WORKSPACE"]){
+					sh 'python test.py'
+				}
+			}
+			post {
+				always {
+					junit 'test-reports/*.xml'
+				}
+			}
+		}
+	}
 }
