@@ -1,3 +1,3 @@
 # Jenkins-CI-with-python
 
-This app is about building and testing a Python web api serviceusing a Jenkins continuous integration (CI) pipeline.
+This app is about testing a Python web api service using a Jenkins continuous integration (CI) pipeline.
